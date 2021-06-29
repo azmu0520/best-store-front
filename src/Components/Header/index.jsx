@@ -8,6 +8,7 @@ import {
   UserIcon,
   SearchIcon,
   KarzinkaIcon,
+  DollorWrap,
 } from "./style";
 
 const Header = (props) => {
@@ -28,10 +29,10 @@ const Header = (props) => {
         <ItemWrap padding>
           <KarzinkaIcon /> Items
         </ItemWrap>
-        <ItemWrap>
+        <DollorWrap>
           $0.00
           <SearchIcon />
-        </ItemWrap>
+        </DollorWrap>
       </LeftSide>
     </Container>
   );
