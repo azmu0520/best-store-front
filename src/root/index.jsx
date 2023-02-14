@@ -6,11 +6,10 @@ import { data } from '../utilits/navbar';
 const Root = () => {
   return (
     <Routes>
-      <Route element={<Navbar />}>
+      <Route path='/' element={<Navbar />}>
         {data?.map(({ id, path, Component }) => (
           <Route key={id} path={path} element={<Component />} />
         ))}
-        <Route path='/' element={<Home />} />
       </Route>
       <Route path={'*'} element={<div>you are lost</div>} />
     </Routes>
