@@ -17,7 +17,7 @@ export const Container = styled.div`
   width: 100%;
   position: fixed;
   z-index: 11;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: ${({ theme }) => theme.text};
   .btn-margin {
   }
 `;
@@ -59,6 +59,19 @@ export const Wrap = styled.div`
   margin: 0 auto;
 `;
 
+Wrap.Outlet = styled.div`
+  max-width: 1145px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 100px;
+`;
+
+Wrap.Container = styled.div`
+  display: flex;
+  width: 100%;
+  background: ${({ theme }) => theme.main_bg};
+  min-height: 100vh;
+`;
 Wrap.Images = styled.div`
   ${center}
 `;

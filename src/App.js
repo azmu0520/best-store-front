@@ -10,6 +10,7 @@ export default function App() {
     light: {
       bg: '#f8f9fa',
       second_bg: '#fdfdfd',
+      main_bg: '#e9ebee',
       logo1: '#E21221',
       logo2: '#3D3C3C',
       text: '#222',
@@ -20,6 +21,7 @@ export default function App() {
       second_bg: '#282828',
       logo1: '#3D3C3C',
       logo2: '#8D0000',
+      main_bg: '#282828',
       text: '#f8f9fa',
       shadow: 'inset 0 2px 0px #3a3b33, 0 2px 5px #000',
     },

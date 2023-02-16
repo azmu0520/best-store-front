@@ -59,7 +59,9 @@ const Navbar = () => {
             </Search.Btn>
           </Search>
           <Controllers>
-            <Btn>Log in</Btn>
+            <Btn>
+              <NavLink to='/login'>Log in</NavLink>{' '}
+            </Btn>
             <Btn onClick={() => setIsModalOpen(true)}>
               <Icon.Lang />
             </Btn>
@@ -96,7 +98,11 @@ const Navbar = () => {
           </Controllers>
         </Wrap>
       </Container>
-      <Outlet />
+      <Wrap.Container>
+        <Wrap.Outlet>
+          <Outlet />
+        </Wrap.Outlet>
+      </Wrap.Container>
     </>
   );
 };

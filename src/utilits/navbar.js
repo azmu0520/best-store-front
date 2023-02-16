@@ -1,5 +1,6 @@
 import Generic from '../components/Generic';
 import Home from '../components/Home';
+import Login from '../components/Login';
 
 export const data = [
   {
@@ -12,14 +13,14 @@ export const data = [
   {
     id: 2,
     title: 'Login',
-    path: 'auth/login',
-    Component: Generic,
+    path: 'login',
+    Component: Login,
     private: true,
   },
   {
     id: 3,
     title: 'Register',
-    path: 'auth/register',
+    path: 'register',
     Component: Generic,
     private: true,
   },
