@@ -1,34 +1,26 @@
 import React from 'react';
-import { Wrap } from './style';
+import { Wrap } from '../Login/style';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import useRequest from '../../hooks/useRequest';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../context/Auth';
-
-const Login = () => {
+import { message } from 'antd';
+const Register = () => {
   const { request } = useRequest();
-  const [, dispatch] = useAuthContext();
   const navigate = useNavigate();
   const handleSubmit = async (values) => {
+    console.log(values);
     try {
       await request({
-        url: '/api/auth/login',
+        url: '/api/auth/register',
         method: 'POST',
         body: values,
         includeToken: false,
-      })
-        .then((res) => {
-          if (res?.token) {
-            dispatch({ type: 'login', payload: res?.token });
-            navigate('/');
-          }
-        })
-        .catch((err) => {
-          console.log(err, 'ee');
-        });
+      }).then((res) => {
+        res?.status === 'success' && navigate('/login');
+      });
     } catch (error) {
-      console.log(error);
+      message.error('Something went wrong');
     }
   };
   return (
@@ -36,12 +28,14 @@ const Login = () => {
       <Wrap.Container>
         <Formik
           initialValues={{
+            first_name: '',
+            last_name: '',
             email: '',
             password: '',
           }}
           validationSchema={Yup.object({
             password: Yup.string()
-              .min(3, 'Password should be of minimum 3 characters length')
+              .min(6, 'Password should be of minimum 6 characters length')
               .required('Required'),
             email: Yup.string()
               .email('Enter a valid email')
@@ -51,8 +45,24 @@ const Login = () => {
         >
           {(formik) => (
             <Wrap.Form onSubmit={formik.handleSubmit}>
-              <Wrap.Title>Manager Login</Wrap.Title>
-              <Wrap.Label>Enter your Email</Wrap.Label>
+              <Wrap.Title>Manager Register</Wrap.Title>
+              <Wrap.Label>Enter your first name</Wrap.Label>
+              <Wrap.Input
+                type='text'
+                autoComplete='current-name'
+                name='first_name'
+                placeholder='First Name'
+                {...formik.getFieldProps('first_name')}
+              />
+              <Wrap.Label>Enter your last name</Wrap.Label>
+              <Wrap.Input
+                type='text'
+                autoComplete='current-last-name'
+                name='last_name'
+                placeholder='Last Name'
+                {...formik.getFieldProps('last_name')}
+              />
+              <Wrap.Label>Enter your email</Wrap.Label>
               <Wrap.Input
                 type='text'
                 autoComplete='current-email'
@@ -65,7 +75,7 @@ const Login = () => {
                   <p style={{ color: 'red', fontSize: '12px' }}>Email {msg}</p>
                 )}
               </ErrorMessage>
-              <Wrap.Label>Enter your Password</Wrap.Label>
+              <Wrap.Label>Enter your password</Wrap.Label>
               <Wrap.Input
                 type='password'
                 autoComplete='current-password'
@@ -80,12 +90,11 @@ const Login = () => {
                   </p>
                 )}
               </ErrorMessage>
-
               <Wrap.Submit type='submit'>
-                <Wrap.LoginIcon /> Sign in
+                <Wrap.LoginIcon /> Create Account
               </Wrap.Submit>
               <Wrap.Regsiter>
-                <NavLink to='/register'> Create Account</NavLink>
+                <NavLink to='/login'> Sign in</NavLink>
               </Wrap.Regsiter>
             </Wrap.Form>
           )}
@@ -95,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

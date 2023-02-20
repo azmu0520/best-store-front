@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import {
   Container,
@@ -9,38 +9,43 @@ import {
   Profile,
   Btn,
 } from './style';
-import logo from '../../assets/images/logo.png';
 import flag_en from '../../assets/images/flag-en.png';
 import flag_ru from '../../assets/images/flag-ru.png';
 import user from '../../assets/images/user.jpg';
 import { Modal, Dropdown } from 'antd';
 import { useThemeContext } from '../../context/Theme';
-
-const items = [
-  {
-    label: <NavLink to='/drive'>My Drive</NavLink>,
-    key: '0',
-  },
-  {
-    label: <NavLink to='/upload'>Upload</NavLink>,
-    key: '1',
-  },
-  {
-    label: <NavLink to='/account/settings'>Account Settings</NavLink>,
-    key: '3',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <NavLink to='/logout'>Logout</NavLink>,
-    key: '4',
-  },
-];
+import { useAuthContext } from '../../context/Auth';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [, dispatch] = useThemeContext();
+  const [state, authDispatch] = useAuthContext();
+  console.log(state?.token, 'state');
+  const items = [
+    {
+      label: <NavLink to='/drive'>My Drive</NavLink>,
+      key: '0',
+    },
+    {
+      label: <NavLink to='/upload'>Upload</NavLink>,
+      key: '1',
+    },
+    {
+      label: <NavLink to='/account/settings'>Account Settings</NavLink>,
+      key: '3',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: (
+        <NavLink to='/login' onClick={() => authDispatch({ type: 'logout' })}>
+          Logout
+        </NavLink>
+      ),
+      key: '4',
+    },
+  ];
   return (
     <>
       <Container>
@@ -59,7 +64,7 @@ const Navbar = () => {
             </Search.Btn>
           </Search>
           <Controllers>
-            <Btn>
+            <Btn style={{ display: `${state?.token ? 'none' : 'static'}` }}>
               <NavLink to='/login'>Log in</NavLink>{' '}
             </Btn>
             <Btn onClick={() => setIsModalOpen(true)}>

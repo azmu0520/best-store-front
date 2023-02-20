@@ -1,9 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const center = css`
-  display: flex;
-  align-items: center;
-`;
 export const Wrap = styled.table``;
 
 Wrap.Tbody = styled.tbody``;

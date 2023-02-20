@@ -1,6 +1,7 @@
 import Generic from '../components/Generic';
 import Home from '../components/Home';
 import Login from '../components/Login';
+import Register from '../components/Register';
 
 export const data = [
   {
@@ -21,7 +22,7 @@ export const data = [
     id: 3,
     title: 'Register',
     path: 'register',
-    Component: Generic,
+    Component: Register,
     private: true,
   },
   {

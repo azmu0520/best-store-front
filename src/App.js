@@ -1,6 +1,5 @@
 import React from 'react';
 import Root from './root';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useThemeContext } from './context/Theme';
 export default function App() {
@@ -28,9 +27,7 @@ export default function App() {
   };
   return (
     <ThemeProvider theme={theme[state.dark ? 'dark' : 'light']}>
-      <Router>
-        <Root />
-      </Router>
+      <Root />
     </ThemeProvider>
   );
 }

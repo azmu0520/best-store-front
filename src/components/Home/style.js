@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
+// import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 
 const center = css`
   display: flex;
