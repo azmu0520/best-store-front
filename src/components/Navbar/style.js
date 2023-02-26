@@ -18,8 +18,6 @@ export const Container = styled.div`
   position: fixed;
   z-index: 11;
   border-bottom: ${({ theme }) => theme.text};
-  .btn-margin {
-  }
 `;
 export const Icon = styled.div``;
 

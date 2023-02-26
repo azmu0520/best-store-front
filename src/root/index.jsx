@@ -1,7 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import MyDrive from '../components/MyDrive';
 import Navbar from '../components/Navbar';
 import { data } from '../utilits/navbar';
+import { sidebar } from '../utilits/sidebar';
 const Root = () => {
   return (
     <Routes>
@@ -9,6 +11,11 @@ const Root = () => {
         {data?.map(({ id, path, Component }) => (
           <Route key={id} path={path} element={<Component />} />
         ))}
+        <Route path='drive' element={<MyDrive />}>
+          {sidebar.map(({ id, path, Component }) => (
+            <Route key={id} path={path} element={<Component />} />
+          ))}
+        </Route>
       </Route>
       <Route path={'*'} element={<div>you are lost</div>} />
     </Routes>

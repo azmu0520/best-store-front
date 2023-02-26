@@ -26,12 +26,6 @@ export const data = [
     private: true,
   },
   {
-    id: 4,
-    title: 'My Drive',
-    path: 'drive',
-    Component: Generic,
-  },
-  {
     id: 5,
     title: 'Upload',
     path: 'upload',
