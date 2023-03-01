@@ -1,28 +1,25 @@
-import { useCallback, useContext } from 'react';
-import { AuthContext } from '../context/Auth';
+import { useCallback, useContext } from "react";
+import { AuthContext } from "../context/Auth";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-
 const useRequest = () => {
   const [state] = useContext(AuthContext);
-
   const request = useCallback(
     async ({
       baseurl = BASE_URL,
-      url = '',
-      method = 'GET',
+      url = "",
+      method = "GET",
       body = null,
       headers = {},
-      includeToken = false,
+      includeToken = true,
     }) => {
       try {
         if (body) {
           body = JSON.stringify(body);
-          headers['Content-Type'] = 'application/json';
-          headers['Access-Control-Allow-Origin'] = '*';
+          headers["Content-Type"] = "application/json";
         }
         if (includeToken) {
-          headers['Authorization'] = `Bearer ${state.token}`;
+          headers["auth-token"] = state.token;
         }
         const response = await fetch(`${baseurl}${url}`, {
           method: method,
@@ -32,8 +29,7 @@ const useRequest = () => {
         const data = await response.json();
         return data;
       } catch (error) {
-        // const msg = error.json();
-        console.log(error, 'msg');
+        console.log(error, "msg");
       }
     },
     [state]

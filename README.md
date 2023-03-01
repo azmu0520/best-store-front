@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Best Store Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Web-app for personal collections managements
 
 ## Available Scripts
 
@@ -14,57 +14,30 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] Nonauthenticated used have read-only access (they can use search, however cannot create collections and items, create comments or likes).
 
-### `npm run build`
+- [ ] Authenticated users have access to everythng except "admin area".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] App supports registration and authentication.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ] Every page provides access to full-text search over whole site.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] Every user has a personal page, which allow to manage list of own collections (add/remove/edit) and allow to open page dedicated to given collection (that page contains table with filters and sorting as well as actions to cretae/remove/edit item).
 
-### `npm run eject`
+- [ ] Each collection consists of: name, short description with markdown formatting, "topic" (from fixed set, e.g., Alcohol|Books|Cola Cans|...), optional image (stored in the cloud, upload with the help of drag-n-drop).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [ ] Also collection allows to define custom fields, which will be filled for each item in this collection. There 3 fixed field (id, name, tags) but it's also possible to add dynamically something from the following - 3 number filed, 3 string filed, 3 multiline text fields, 3 dates, 3 boolean checkboxes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ ] Each item has tags (user enters several tags with autocompletion, when user starts to enter tag, you show the dropdown with the words entered on the site before by all users).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [ ] On the main page: last added items, biggest collections, clickable tag could (when users click on the tag, he/she gets and seach result page - it can be the same view).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [ ] Items consists of like and comments.
 
-## Learn More
+- [ ] The App supports 2 languages: English and Russian.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ ] Styled Compnents and Ant Design CSS-framework used for styling.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] Different resolution supports (including phones , tables).

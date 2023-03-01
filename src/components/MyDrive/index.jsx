@@ -1,9 +1,23 @@
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { sidebar } from '../../utilits/sidebar';
-import { Sidebar, Wrap } from './style';
+import React, { useEffect } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import { useCollectionsContext } from "../../context/Collections";
+import useRequest from "../../hooks/useRequest";
+import { sidebar } from "../../utilits/sidebar";
+import { Sidebar, Wrap } from "./style";
 
 const MyDrive = () => {
+  const { request } = useRequest();
+  const [, dispatch] = useCollectionsContext();
+
+  useEffect(() => {
+    request({
+      url: "/api/collections/user",
+    }).then((res) => {
+      if (res?.status == "success") {
+        dispatch({ type: "setUserCollections", payload: res?.data });
+      }
+    });
+  }, []);
   return (
     <Wrap>
       <Sidebar>

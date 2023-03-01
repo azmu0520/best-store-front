@@ -1,11 +1,14 @@
-import React from 'react';
-import { AuthProvider } from './Auth';
-import { ThemeProvider } from './Theme';
+import React from "react";
+import { AuthProvider } from "./Auth";
+import { CollectionsProvider } from "./Collections";
+import { ThemeProvider } from "./Theme";
 
 export default function MainProvider({ children }) {
   return (
     <ThemeProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <CollectionsProvider>
+        <AuthProvider>{children}</AuthProvider>
+      </CollectionsProvider>
     </ThemeProvider>
   );
 }

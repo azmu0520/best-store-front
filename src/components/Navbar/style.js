@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
-import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
-import { ReactComponent as Global } from '../../assets/icons/global.svg';
-import { ReactComponent as ArrowD } from '../../assets/icons/arrow-down.svg';
-import { ReactComponent as Best } from '../../assets/icons/Best.svg';
-import { ReactComponent as Store } from '../../assets/icons/Store.svg';
+import styled, { css } from "styled-components";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { ReactComponent as Global } from "../../assets/icons/global.svg";
+import { ReactComponent as ArrowD } from "../../assets/icons/arrow-down.svg";
+import { ReactComponent as Best } from "../../assets/icons/Best.svg";
+import { ReactComponent as Store } from "../../assets/icons/Store.svg";
 
 const center = css`
   display: flex;
@@ -42,7 +42,7 @@ export const Btn = styled.button`
   color: ${({ theme }) => theme.text};
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Roboto-Medium';
+  font-family: "Roboto-Medium";
   font-weight: 500;
   margin: 0 20px;
 
@@ -52,13 +52,13 @@ export const Btn = styled.button`
 export const Wrap = styled.div`
   ${center}
   justify-content: space-between;
-  max-width: 1145px;
+  max-width: 1345px;
   width: 100%;
   margin: 0 auto;
 `;
 
 Wrap.Outlet = styled.div`
-  max-width: 1145px;
+  max-width: 1445px;
   width: 100%;
   margin: 0 auto;
   padding-top: 100px;
@@ -68,7 +68,7 @@ Wrap.Container = styled.div`
   display: flex;
   width: 100%;
   background: ${({ theme }) => theme.main_bg};
-  min-height: 100vh;
+  height: 100vh;
 `;
 Wrap.Images = styled.div`
   ${center}

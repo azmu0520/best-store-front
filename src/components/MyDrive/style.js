@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const center = css`
   display: flex;
@@ -7,10 +7,11 @@ const center = css`
 
 export const Wrap = styled.div`
   display: flex;
-  height: 89vh;
+  height: 100%;
   background-color: ${({ theme }) => theme.sidebar_body};
   box-shadow: 0px 5px 20px rgb(0 0 0 / 10%);
   border-radius: 5px;
+  overflow: hidden;
 `;
 
 export const Sidebar = styled.div`
@@ -19,7 +20,7 @@ export const Sidebar = styled.div`
   min-width: 250px;
   flex: 1;
   background: ${({ theme }) => theme.main_bg};
-  height: 100%;
+
   a {
     ${center}
     width: 100%;
@@ -46,4 +47,10 @@ Sidebar.Logo = styled.h1`
 
 Wrap.Outlet = styled.div`
   flex: 4.5;
+  height: 87vh;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
 `;
