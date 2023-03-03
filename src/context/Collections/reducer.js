@@ -1,7 +1,11 @@
 export const initialState = {
   data: [],
-  items: [],
+  allCollections: [],
+  item: {},
   titles: [],
+  collectionAdded: [],
+  filter: "All",
+  sort: "All",
 };
 
 export const reducer = (state, action) => {
@@ -15,12 +19,39 @@ export const reducer = (state, action) => {
         ),
       };
     }
-    case "setCurrentItems": {
+    case "setAllCollections": {
+      return {
+        ...state,
+        allCollections: action.payload,
+      };
+    }
+    case "setSingleItem": {
       return {
         ...state,
         item: action.payload,
       };
     }
+    case "setColllectionAdd": {
+      return {
+        ...state,
+        collectionAdded: action.payload,
+      };
+    }
+
+    case "setAlphabitFilter": {
+      return {
+        ...state,
+        filter: action.payload,
+      };
+    }
+
+    case "setTopicSort": {
+      return {
+        ...state,
+        sort: action.payload,
+      };
+    }
+
     default:
       return state;
   }

@@ -1,19 +1,14 @@
 export const initialState = {
-  dark: localStorage.getItem("user-theme"),
+  // eslint-disable-next-line
+  dark: localStorage.getItem("user-theme") == "true",
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "setDark": {
-      localStorage.setItem("user-theme", "dark");
+    case "setMode": {
+      localStorage.setItem("user-theme", action.payload);
       return {
-        dark: "dark",
-      };
-    }
-    case "setLight": {
-      localStorage.removeItem("user-theme");
-      return {
-        dark: null,
+        dark: action.payload,
       };
     }
     default:

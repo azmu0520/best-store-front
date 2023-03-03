@@ -1,4 +1,5 @@
 import Generic from "../components/Generic";
+import AddCollection from "../components/MyDrive/AddCollection";
 import AddItems from "../components/MyDrive/AddItems";
 import Library from "../components/MyDrive/Library";
 
@@ -19,6 +20,6 @@ export const sidebar = [
     id: 3,
     title: "Add Collection",
     path: "add-collection",
-    Component: Library,
+    Component: AddCollection,
   },
 ];

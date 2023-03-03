@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import { Select } from "antd";
+import { Select, Form } from "antd";
 import { ReactComponent as Cover } from "../../../../assets/icons/cover.svg";
+import { ReactComponent as Export } from "../../../../assets/icons/export.svg";
 
 const { Option } = Select;
 const color = css`
@@ -17,7 +18,12 @@ export const Wrap = styled.div`
   position: relative;
 `;
 
-Wrap.Form = styled.form``;
+Wrap.Export = styled(Export)`
+  path {
+    fill: ${({ theme }) => theme.text};
+  }
+`;
+Wrap.Form = styled(Form)``;
 Wrap.Option = styled(Option)``;
 Wrap.Footer = styled.div`
   ${center}
@@ -75,21 +81,6 @@ Wrap.Label = styled.span`
   ${color}
 `;
 
-Wrap.TypeCheckBoxes = styled.div`
-  /* span{
-} */
-  ${center}
-
-  label {
-    font-size: 15px;
-    ${color};
-    font-weight: 500;
-    margin-left: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-  }
-`;
-
 Wrap.Checkbox = styled.input``;
 
 Wrap.Label = styled.label`
@@ -112,9 +103,13 @@ CustomFields.Title = styled.h3`
   ${color}
 `;
 
-CustomFields.Item = styled.div`
+CustomFields.Item = styled(Wrap.Form.Item)`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  p {
+    color: ${({ theme }) => theme.text} !important;
+  }
 `;
 
 Wrap.Input = styled.input`
@@ -142,6 +137,7 @@ Wrap.TextArea = styled.textarea`
   height: 200px;
   padding: 0.5rem;
   border-radius: 4px;
+  width: 100%;
   ${color}
   margin: 0 0 1rem;
 `;

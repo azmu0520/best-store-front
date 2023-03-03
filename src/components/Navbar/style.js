@@ -4,6 +4,8 @@ import { ReactComponent as Global } from "../../assets/icons/global.svg";
 import { ReactComponent as ArrowD } from "../../assets/icons/arrow-down.svg";
 import { ReactComponent as Best } from "../../assets/icons/Best.svg";
 import { ReactComponent as Store } from "../../assets/icons/Store.svg";
+import { ReactComponent as Dark } from "../../assets/icons/dark.svg";
+import { NavLink } from "react-router-dom";
 
 const center = css`
   display: flex;
@@ -27,6 +29,11 @@ Icon.Logo1 = styled(Best)`
   path {
     fill: ${({ theme }) => theme.logo1};
   }
+`;
+
+Icon.Dark = styled(Dark)`
+  fill: ${({ theme }) => theme.text};
+  cursor: pointer;
 `;
 Icon.Logo2 = styled(Store)`
   width: 7.125em;
@@ -68,9 +75,9 @@ Wrap.Container = styled.div`
   display: flex;
   width: 100%;
   background: ${({ theme }) => theme.main_bg};
-  height: 100vh;
+  min-height: 100vh;
 `;
-Wrap.Images = styled.div`
+Wrap.Images = styled(NavLink)`
   ${center}
 `;
 

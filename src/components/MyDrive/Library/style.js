@@ -50,3 +50,21 @@ Filters.Select = styled(Select)`
 Wrap.Cards = styled.div`
   margin-top: 50px;
 `;
+
+Wrap.NoItems = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  span {
+    font-size: 3rem;
+    color: ${({ theme }) => theme.text};
+    opacity: 0.8;
+  }
+  a {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    text-decoration: underline;
+  }
+`;

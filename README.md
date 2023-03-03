@@ -38,6 +38,6 @@ You may also see any lint errors in the console.
 
 - [ ] The App supports 2 languages: English and Russian.
 
-- [ ] Styled Compnents and Ant Design CSS-framework used for styling.
+- [x] Styled Compnents and Ant Design CSS-framework used for styling.
 
 - [ ] Different resolution supports (including phones , tables).

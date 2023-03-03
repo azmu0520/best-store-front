@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
-import { ReactComponent as LoginIcon } from '../../assets/icons/login.svg';
+import styled, { css } from "styled-components";
+import { ReactComponent as LoginIcon } from "../../assets/icons/login.svg";
+import { Form, Input, Button } from "antd";
 const center = css`
   display: flex;
   align-items: center;
@@ -23,6 +24,7 @@ Wrap.Container = styled.div`
   background-color: ${({ theme }) => theme.bg};
   padding: 36px;
   font-size: 16px;
+  border-radius: 10px;
 `;
 
 Wrap.Title = styled.h3`
@@ -31,7 +33,9 @@ Wrap.Title = styled.h3`
   color: #12a70c;
 `;
 
-Wrap.Form = styled.form``;
+export const AntForm = styled(Form)`
+  width: 400px;
+`;
 Wrap.Submit = styled.button`
   ${center}
   color: #fff;
@@ -56,7 +60,8 @@ Wrap.Label = styled.label`
   text-transform: uppercase;
 `;
 
-Wrap.Input = styled.input`
+Wrap.Input = styled(Input)`
+  background: transparent !important;
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -77,6 +82,15 @@ Wrap.Input = styled.input`
   :-internal-autofill-previewed {
     -webkit-box-shadow: ${({ theme }) =>
       `0 0 0 30px ${theme.bg} inset`} !important;
+  }
+`;
+
+Wrap.PasswordInput = styled(Input.Password)`
+  .ant-input-affix-wrapper .ant-input-password {
+    background-color: transparent !important;
+  }
+  .anticon svg {
+    color: ${({ theme }) => theme.text} !important;
   }
 `;
 

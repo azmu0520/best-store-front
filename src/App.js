@@ -3,7 +3,7 @@ import Root from "./root";
 import { ThemeProvider } from "styled-components";
 import { useThemeContext } from "./context/Theme";
 export default function App() {
-  const [state] = useThemeContext();
+  const [{ dark }] = useThemeContext();
   const theme = {
     light: {
       bg: "#f8f9fa",
@@ -32,8 +32,9 @@ export default function App() {
       border: "#333",
     },
   };
+  console.log(dark);
   return (
-    <ThemeProvider theme={theme[state.dark ? "dark" : "light"]}>
+    <ThemeProvider theme={theme[dark ? "dark" : "light"]}>
       <Root />
     </ThemeProvider>
   );
